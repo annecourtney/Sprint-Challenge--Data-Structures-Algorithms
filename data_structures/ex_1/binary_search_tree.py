@@ -22,7 +22,8 @@ class BinarySearchTree:
         self.right = new_tree
       else:
         self.right.insert(value)
-
+ 
+ 
   def contains(self, target):
     if self.value == target:
       return True
