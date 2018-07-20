@@ -5,10 +5,30 @@ class BinarySearchTree:
     self.right = None
 
   def depth_first_for_each(self, cb):
-    pass    
+    # invoking the cb with the current value of self
+    cb(self.value)
+    # check for a left branch, if there is invoke the cb on the right
+    if self.left != None:
+      self.left.depth_first_for_each(cb)
+    # check for a right branch, if there is invoke the cb on the right 
+    if self.right != None:
+      self.right.depth_first_for_each(cb)
+    return   
 
   def breadth_first_for_each(self, cb):
-    pass
+    # creating a storage for the binary tree
+    storage = [self]
+    # while there are nodes in the storage, we want to remove the first and return it
+    while len(storage) > 0:
+      currNode = storage.pop(0)
+      cb(currNode.value)
+    # if the node has another node to the left, append that node to it's left
+      if currNode.left != None:
+        storage.append(currNode.left)
+    # if the node has another node to the right, append that node to it's right
+      if currNode.right != None:
+        storage.append(currNode.right)
+    return
 
   def insert(self, value):
     new_tree = BinarySearchTree(value)
@@ -23,7 +43,7 @@ class BinarySearchTree:
       else:
         self.right.insert(value)
  
- 
+
   def contains(self, target):
     if self.value == target:
       return True
