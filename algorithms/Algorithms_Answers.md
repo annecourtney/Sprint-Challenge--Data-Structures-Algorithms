@@ -1,8 +1,8 @@
 1. 
 a) O(n)
 b) O(n)
-c)?
-d)?
+c) O (log n) maybe?
+d) O (log n)
 e)?
 f)O(n)? 
 g)O(n)?
